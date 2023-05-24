@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0427F1622A1DE0A50025F39C /* listViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427F1612A1DE0A50025F39C /* listViewController.swift */; };
+		0427F1642A1DE86C0025F39C /* CustomUINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427F1632A1DE86C0025F39C /* CustomUINavigationBar.swift */; };
+		0427F1692A1DEE8F0025F39C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427F1672A1DEE8F0025F39C /* TableViewCell.swift */; };
+		0427F16A2A1DEE8F0025F39C /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0427F1682A1DEE8F0025F39C /* TableViewCell.xib */; };
 		046E44EB2A1CACFB007B323A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E44EA2A1CACFB007B323A /* AppDelegate.swift */; };
 		046E44ED2A1CACFB007B323A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E44EC2A1CACFB007B323A /* SceneDelegate.swift */; };
 		046E44EF2A1CACFB007B323A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E44EE2A1CACFB007B323A /* ViewController.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0427F1612A1DE0A50025F39C /* listViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listViewController.swift; sourceTree = "<group>"; };
+		0427F1632A1DE86C0025F39C /* CustomUINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUINavigationBar.swift; sourceTree = "<group>"; };
+		0427F1672A1DEE8F0025F39C /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		0427F1682A1DEE8F0025F39C /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		046E44E72A1CACFB007B323A /* HappyMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046E44EA2A1CACFB007B323A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		046E44EC2A1CACFB007B323A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,9 +65,13 @@
 			isa = PBXGroup;
 			children = (
 				046E44EA2A1CACFB007B323A /* AppDelegate.swift */,
+				0427F1612A1DE0A50025F39C /* listViewController.swift */,
 				046E44EC2A1CACFB007B323A /* SceneDelegate.swift */,
 				046E44EE2A1CACFB007B323A /* ViewController.swift */,
 				046E44F02A1CACFB007B323A /* Main.storyboard */,
+				0427F1672A1DEE8F0025F39C /* TableViewCell.swift */,
+				0427F1682A1DEE8F0025F39C /* TableViewCell.xib */,
+				0427F1632A1DE86C0025F39C /* CustomUINavigationBar.swift */,
 				046E44F32A1CACFD007B323A /* Assets.xcassets */,
 				046E44F52A1CACFD007B323A /* LaunchScreen.storyboard */,
 				046E44F82A1CACFD007B323A /* Info.plist */,
@@ -126,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				046E44F72A1CACFD007B323A /* LaunchScreen.storyboard in Resources */,
+				0427F16A2A1DEE8F0025F39C /* TableViewCell.xib in Resources */,
 				046E44F42A1CACFD007B323A /* Assets.xcassets in Resources */,
 				046E44F22A1CACFB007B323A /* Main.storyboard in Resources */,
 			);
@@ -139,7 +152,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				046E44EF2A1CACFB007B323A /* ViewController.swift in Sources */,
+				0427F1642A1DE86C0025F39C /* CustomUINavigationBar.swift in Sources */,
 				046E44EB2A1CACFB007B323A /* AppDelegate.swift in Sources */,
+				0427F1692A1DEE8F0025F39C /* TableViewCell.swift in Sources */,
+				0427F1622A1DE0A50025F39C /* listViewController.swift in Sources */,
 				046E44ED2A1CACFB007B323A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
