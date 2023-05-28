@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HNe-6h-m3S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rFH-kM-AcP">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
@@ -8,47 +8,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--listViewController-->
+        <!--ListViewController-->
         <scene sceneID="rbE-Yc-Pny">
             <objects>
-                <viewController title="listViewController" id="HNe-6h-m3S" customClass="listViewController" customModule="HappyMoney" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ListViewController" id="HNe-6h-m3S" customClass="ListViewController" customModule="HappyMoney" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xmo-V7-qUd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vG8-GK-Abv">
-                                <rect key="frame" x="0.0" y="50" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="楽しい家計簿" id="s6x-g1-LGC">
-                                        <barButtonItem key="rightBarButtonItem" title="追加" style="plain" id="Mz9-OM-gLV">
-                                            <connections>
-                                                <segue destination="HY4-kw-wWL" kind="presentation" id="0Ot-8g-oG4"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="Shadow" value=" "/>
-                                        </userDefinedRuntimeAttributes>
-                                    </navigationItem>
-                                </items>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="Shadow" value=" "/>
-                                </userDefinedRuntimeAttributes>
-                            </navigationBar>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypR-HP-fmx">
-                                <rect key="frame" x="0.0" y="117" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="QUp-hj-8py">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt;" image="chevron.backward" catalog="system" id="CkA-mp-4Na"/>
-                                        <barButtonItem key="rightBarButtonItem" title="&gt;" image="chevron.right" catalog="system" id="gxT-ql-gj9"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mqg-fm-a7h">
-                                <rect key="frame" x="34" y="260" width="307" height="187"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mqg-fm-a7h">
+                                <rect key="frame" x="20" y="258.33333333333326" width="335" height="489.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HNe-6h-m3S" id="aJO-QR-cRl"/>
+                                    <outlet property="delegate" destination="HNe-6h-m3S" id="7ff-fN-boe"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="月合計: +12345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Del-Kp-f3N">
                                 <rect key="frame" x="127" y="192" width="120" height="21"/>
@@ -57,12 +31,46 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="96" translatesAutoresizingMaskIntoConstraints="NO" id="aKt-7d-IiE">
+                                <rect key="frame" x="20" y="113.99999999999999" width="335" height="34.333333333333329"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQr-vY-MUq">
+                                        <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title=""/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="MONTH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ap0-iT-yXl">
+                                        <rect key="frame" x="137.33333333333334" y="0.0" width="62" height="34.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovH-vj-APy">
+                                        <rect key="frame" x="295.33333333333331" y="0.0" width="39.666666666666686" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kQi-yD-6XX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mqg-fm-a7h" firstAttribute="top" secondItem="aKt-7d-IiE" secondAttribute="bottom" constant="110" id="0VC-5Y-ZeT"/>
+                            <constraint firstItem="kQi-yD-6XX" firstAttribute="bottom" secondItem="mqg-fm-a7h" secondAttribute="bottom" constant="30" id="3Gm-PL-mhx"/>
+                            <constraint firstItem="kQi-yD-6XX" firstAttribute="trailing" secondItem="mqg-fm-a7h" secondAttribute="trailing" constant="20" id="WFF-B4-82Z"/>
+                            <constraint firstItem="kQi-yD-6XX" firstAttribute="trailing" secondItem="aKt-7d-IiE" secondAttribute="trailing" constant="20" id="ZB2-T0-xKg"/>
+                            <constraint firstItem="aKt-7d-IiE" firstAttribute="leading" secondItem="kQi-yD-6XX" secondAttribute="leading" constant="20" id="cc9-mS-hkD"/>
+                            <constraint firstItem="aKt-7d-IiE" firstAttribute="top" secondItem="kQi-yD-6XX" secondAttribute="top" constant="20" id="ip2-kh-kFp"/>
+                            <constraint firstItem="mqg-fm-a7h" firstAttribute="leading" secondItem="kQi-yD-6XX" secondAttribute="leading" constant="20" id="pun-O8-dkz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="楽しい家計簿" id="VF9-ZL-VRH">
-                        <barButtonItem key="rightBarButtonItem" title="追加" id="fh4-7n-JwI"/>
+                        <barButtonItem key="rightBarButtonItem" title="追加" id="fh4-7n-JwI">
+                            <connections>
+                                <segue destination="HY4-kw-wWL" kind="show" id="soV-2e-5nH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="mqg-fm-a7h" id="cIN-MN-8EQ"/>
@@ -70,35 +78,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GN0-fY-Ac3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2620" y="-27"/>
+            <point key="canvasLocation" x="3538" y="-27"/>
         </scene>
-        <!--View Controller-->
+        <!--Input View Controller-->
         <scene sceneID="3S8-qG-SXd">
             <objects>
-                <viewController id="HY4-kw-wWL" sceneMemberID="viewController">
+                <viewController id="HY4-kw-wWL" customClass="InputViewController" customModule="HappyMoney" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gbc-gg-S5B">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sRW-3f-4BV">
-                                <rect key="frame" x="16" y="63" width="343" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sRW-3f-4BV">
+                                <rect key="frame" x="20" y="100" width="335" height="32"/>
                                 <segments>
                                     <segment title="出費"/>
                                     <segment title="収入"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentValueChanged:" destination="HY4-kw-wWL" eventType="valueChanged" id="iVI-Ig-F0C"/>
+                                </connections>
                             </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3uG-5f-Iot">
                                 <rect key="frame" x="155" y="172" width="204" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="formValueChanged" destination="HY4-kw-wWL" eventType="valueChanged" id="HeP-hd-03x"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XdZ-DD-C3G">
                                 <rect key="frame" x="155" y="268" width="204" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="formValueChanged" destination="HY4-kw-wWL" eventType="valueChanged" id="qyM-qr-rQq"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFM-le-1tg">
                                 <rect key="frame" x="65" y="177" width="41" height="24"/>
@@ -130,24 +146,37 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="完了"/>
                                 <connections>
-                                    <segue destination="Fu6-iS-b40" kind="presentation" id="sM9-0C-1fn"/>
+                                    <action selector="saveElement" destination="HY4-kw-wWL" eventType="touchUpInside" id="W5r-gf-31h"/>
+                                    <segue destination="Fu6-iS-b40" kind="show" id="m3a-8f-UbH"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="43r-eU-e8M"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sRW-3f-4BV" firstAttribute="leading" secondItem="43r-eU-e8M" secondAttribute="leading" constant="20" id="8EZ-vM-Fas"/>
+                            <constraint firstItem="sRW-3f-4BV" firstAttribute="centerX" secondItem="gbc-gg-S5B" secondAttribute="centerX" id="HaV-dJ-ydc"/>
+                            <constraint firstItem="sRW-3f-4BV" firstAttribute="top" secondItem="gbc-gg-S5B" secondAttribute="top" constant="100" id="QVJ-dF-q6c"/>
+                            <constraint firstItem="43r-eU-e8M" firstAttribute="trailing" secondItem="sRW-3f-4BV" secondAttribute="trailing" constant="20" id="uhn-gK-sL3"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="UwI-EM-mGT"/>
+                    <connections>
+                        <outlet property="amountTextField" destination="3uG-5f-Iot" id="01n-cx-gXM"/>
+                        <outlet property="button" destination="jGW-dt-els" id="JBM-Rq-UGX"/>
+                        <outlet property="noteTextField" destination="XdZ-DD-C3G" id="yUa-n2-I4D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLa-1F-REI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3446" y="-27"/>
+            <point key="canvasLocation" x="4388" y="-27.339901477832512"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RMk-ZN-wd8">
             <objects>
                 <viewController id="Fu6-iS-b40" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0mz-S1-6Yv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0q3-ay-YVi">
@@ -161,15 +190,33 @@
                         <viewLayoutGuide key="safeArea" id="hh0-cy-sf8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="h9W-LF-1cZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tra-ee-wR8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4321" y="-27"/>
+            <point key="canvasLocation" x="5236" y="-27"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eaq-ne-SCT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rFH-kM-AcP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7pS-sR-grx">
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HNe-6h-m3S" kind="relationship" relationship="rootViewController" id="CXf-NX-03K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="57E-la-CZI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2620" y="-27.339901477832512"/>
         </scene>
     </scenes>
     <resources>
-        <image name=" " width="128" height="128"/>
-        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="comment-regular" width="512" height="512"/>
         <image name="dollar-sign-solid" width="320" height="512"/>

@@ -11,6 +11,7 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var noteLabel: UILabel!
+    @IBOutlet var rectangle: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +22,18 @@ class TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setCell(amount: Int, note: String, type: Int) {
+        amountLabel.text = String(amount) + "円"
+        noteLabel.text = note
+        if (type == 0) {
+            rectangle.backgroundColor = UIColor.systemRed
+        } else if (type == 1) {
+            rectangle.backgroundColor = UIColor.systemGreen
+        }
+        
+        
     }
     
 }
