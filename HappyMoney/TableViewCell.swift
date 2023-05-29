@@ -29,8 +29,11 @@ class TableViewCell: UITableViewCell {
         noteLabel.text = note
         if (type == 0) {
             rectangle.backgroundColor = UIColor.systemRed
-        } else if (type == 1) {
+            amountLabel.textColor = UIColor.systemRed
+        }
+        else if (type == 1) {
             rectangle.backgroundColor = UIColor.systemGreen
+            amountLabel.textColor = UIColor.systemGreen
         }
         
         

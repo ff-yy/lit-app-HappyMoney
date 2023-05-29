@@ -12,12 +12,51 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     let realm = try! Realm()
     @IBOutlet var tableView: UITableView!
-    var elementArray: [Element] = []
-
+    var allElementArray: [Element] = []
+    var monthElementArray: [Element] = []
+    var selectedYearMonth: Int = 0 //ex:2305 → 23年の5月
+    @IBOutlet var selectedYearMonthLabel: UILabel!
+    @IBOutlet var totalLabel: UILabel!
+    
+    @IBAction func backButton() {
+        selectedYearMonth -= 1
+        if (selectedYearMonth % 100 == 0) {//1月から0月になったとき = 下2桁が0
+            selectedYearMonth = selectedYearMonth - 100 + 12 //1年前に戻して、12月にする
+        }
+        reloadViews()
+    }
+    
+    @IBAction func forwardButton() {
+        selectedYearMonth += 1
+        if (selectedYearMonth % 100 == 13) {//12月から13月になったとき = 下2桁が13
+            selectedYearMonth = selectedYearMonth + 100 - 12 //1年先にして、1月にする
+        }
+        reloadViews()
+    }
+    
+    /**
+     ビューの更新をする
+     全要素から指定された要素のみフィルターし
+     テーブルビューを更新
+     ラベルも更新
+     */
+    func reloadViews() {
+        monthElementArray = allElementArray.filter{$0.date/100 == selectedYearMonth}
+        tableView.reloadData()
+        selectedYearMonthLabel.text = String(2000 + selectedYearMonth/100) + "年 " + String(selectedYearMonth % 100) + "月分"
+        
+        var sum: Int = 0
+        for element in monthElementArray {
+            sum += ((element.type == 0) ? -1:1)*element.amount
+        }
+        totalLabel.text = "合計: " + String(sum)
+    }
+    
+    
 
     // TableViewに表示するセルの数を返却します。
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return elementArray.count
+        return monthElementArray.count
     }
     
     // 各セルを生成して返却します。
@@ -26,8 +65,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         as! TableViewCell
         
-        let element = elementArray[indexPath.row]
-//
+        let element = monthElementArray[indexPath.row]
+
 //        cell.amountLabel.text = String(nowIndexPathDictionary.amount)
 //        cell.noteLabel.text = nowIndexPathDictionary.note
         cell.setCell(amount: element.amount, note: element.note, type: element.type)
@@ -42,9 +81,18 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         
-        elementArray = readElementArray()
+        //最初に年と月決定
+        let calendar = Calendar(identifier: .gregorian)
+        let date = Date()
+        let year = ( calendar.component(.year, from: date) - 2000 ) * 100
+        let month = calendar.component(.month, from: date)
+        let yearMonth = year + month //ex: 2305
+        selectedYearMonth = yearMonth
     }
     
+    /**
+     Realmからデータを取得する [Element]で返ってくる
+     */
     func readElementArray() -> [Element] {
         return Array(realm.objects(Element.self))
     }
@@ -52,11 +100,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        elementArray = readElementArray()
-        tableView.reloadData()
+        //Realmから要素を取得
+        allElementArray = readElementArray()
+        
+        reloadViews()
     }
-    
-    
     
     
     override func didReceiveMemoryWarning() {
@@ -67,10 +115,15 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             switch editingStyle {
             case .delete:
-                elementArray.remove(at: indexPath.row)
+                try! realm.write {
+                    let element = monthElementArray[indexPath.row]
+                    realm.delete(element)
+                }
+                monthElementArray.remove(at: indexPath.row)
                 tableView.beginUpdates()
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 tableView.endUpdates()
+
                 
             case .insert, .none:
                 // NOP

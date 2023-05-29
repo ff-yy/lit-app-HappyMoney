@@ -11,19 +11,12 @@ import RealmSwift
 class InputViewController: UIViewController {
     
     let realm = try! Realm()
-    var type: Int = 0
+    var type: Int = 0//0は支出, 1は収入
     
     @IBOutlet var amountTextField: UITextField!
     @IBOutlet var noteTextField: UITextField!
     @IBOutlet var button: UIButton!
-    
-    @IBAction func formValueChanged() {
-        print("run")
-        if (amountTextField.text != "" && noteTextField.text != "") {
-            button.isEnabled = true
-        }
-    }
-    
+        
     var elementArray: [Element] = []
 
     override func viewDidLoad() {
@@ -35,30 +28,40 @@ class InputViewController: UIViewController {
         noteTextField.addTarget(self, action: #selector(InputViewController.textFieldDidChange(_:)), for: .editingChanged)
     }
     
+    /**
+     テキストフィールドが更新されたときに毎度呼び出される
+     ボタンを押せるように更新する
+     */
     @objc func textFieldDidChange(_ textField: UITextField) {
-        print("run")
         if (amountTextField.text != "" && noteTextField.text != "") {
             button.isEnabled = true
         }
-
+        else {
+            button.isEnabled = false
+        }
     }
 
-    
+    /**
+     Realmに要素を追加する
+     */
     func createElement(element: Element) {
         try! realm.write {
             realm.add(element)
         }
     }
     
+    /**
+     ボタン押下時に呼び出される
+     Elementクラスを作成して、要素を保存する
+     */
     @IBAction func saveElement() {
         let calendar = Calendar(identifier: .gregorian)
         let date = Date()
         let year = ( calendar.component(.year, from: date) - 2000 ) * 10000
         let month = calendar.component(.month, from: date) * 100
-//        let day = calendar.component(.day, from: date)
-//        let time = year + month + day //ex: 230528
-        let time = year + month //ex: 230528
-        print(time)
+        let day = calendar.component(.day, from: date)
+        let time = year + month + day //ex: 230528
+        print("time: " + String(time))
         
         let element = Element()
         element.date = time

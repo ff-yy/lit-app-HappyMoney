@@ -34,23 +34,38 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="96" translatesAutoresizingMaskIntoConstraints="NO" id="aKt-7d-IiE">
                                 <rect key="frame" x="20" y="113.99999999999999" width="335" height="34.333333333333329"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQr-vY-MUq">
-                                        <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="34.333333333333336"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQr-vY-MUq">
+                                        <rect key="frame" x="0.0" y="0.0" width="11.666666666666666" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title=""/>
+                                        <connections>
+                                            <action selector="backButton" destination="HNe-6h-m3S" eventType="touchUpInside" id="gMl-9I-oOU"/>
+                                        </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="MONTH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ap0-iT-yXl">
-                                        <rect key="frame" x="137.33333333333334" y="0.0" width="62" height="34.333333333333336"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MONTH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ap0-iT-yXl">
+                                        <rect key="frame" x="107.66666666666669" y="0.0" width="120" height="34.333333333333336"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="FUU-ce-aIb"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovH-vj-APy">
-                                        <rect key="frame" x="295.33333333333331" y="0.0" width="39.666666666666686" height="34.333333333333336"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovH-vj-APy">
+                                        <rect key="frame" x="323.66666666666669" y="0.0" width="11.333333333333314" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                        <connections>
+                                            <action selector="forwardButton" destination="HNe-6h-m3S" eventType="touchUpInside" id="ecr-Aa-VH3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="ap0-iT-yXl" firstAttribute="centerY" secondItem="aKt-7d-IiE" secondAttribute="centerY" id="QbL-Fl-sKw"/>
+                                    <constraint firstItem="XQr-vY-MUq" firstAttribute="leading" secondItem="aKt-7d-IiE" secondAttribute="leading" id="TSu-bm-t8K"/>
+                                    <constraint firstItem="ap0-iT-yXl" firstAttribute="centerX" secondItem="aKt-7d-IiE" secondAttribute="centerX" id="nTA-D1-OO3"/>
+                                    <constraint firstAttribute="trailing" secondItem="ovH-vj-APy" secondAttribute="trailing" id="zUg-y2-7H9"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kQi-yD-6XX"/>
@@ -73,12 +88,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="selectedYearMonthLabel" destination="ap0-iT-yXl" id="FTh-uG-Duc"/>
                         <outlet property="tableView" destination="mqg-fm-a7h" id="cIN-MN-8EQ"/>
+                        <outlet property="totalLabel" destination="Del-Kp-f3N" id="tLs-VW-JGV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GN0-fY-Ac3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3538" y="-27"/>
+            <point key="canvasLocation" x="3536.8000000000002" y="-27.339901477832512"/>
         </scene>
         <!--Input View Controller-->
         <scene sceneID="3S8-qG-SXd">
@@ -147,7 +164,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="完了"/>
                                 <connections>
                                     <action selector="saveElement" destination="HY4-kw-wWL" eventType="touchUpInside" id="W5r-gf-31h"/>
-                                    <segue destination="Fu6-iS-b40" kind="show" id="m3a-8f-UbH"/>
+                                    <segue destination="Fu6-iS-b40" kind="presentation" id="m3a-8f-UbH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -176,7 +193,7 @@
             <objects>
                 <viewController id="Fu6-iS-b40" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0mz-S1-6Yv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0q3-ay-YVi">
@@ -186,6 +203,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqv-bS-qNj">
+                                <rect key="frame" x="150" y="617" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hh0-cy-sf8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
