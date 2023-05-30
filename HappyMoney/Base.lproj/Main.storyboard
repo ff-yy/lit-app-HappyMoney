@@ -18,19 +18,12 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mqg-fm-a7h">
                                 <rect key="frame" x="20" y="258.33333333333326" width="335" height="489.66666666666674"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="HNe-6h-m3S" id="aJO-QR-cRl"/>
                                     <outlet property="delegate" destination="HNe-6h-m3S" id="7ff-fN-boe"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="月合計: +12345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Del-Kp-f3N">
-                                <rect key="frame" x="127" y="192" width="120" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="96" translatesAutoresizingMaskIntoConstraints="NO" id="aKt-7d-IiE">
                                 <rect key="frame" x="20" y="113.99999999999999" width="335" height="34.333333333333329"/>
                                 <subviews>
@@ -67,12 +60,31 @@
                                     <constraint firstAttribute="trailing" secondItem="ovH-vj-APy" secondAttribute="trailing" id="zUg-y2-7H9"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="daR-Dv-TVr">
+                                <rect key="frame" x="125.33333333333331" y="181.33333333333334" width="124.66666666666669" height="20.333333333333343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月合計: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpw-yr-Yfb">
+                                        <rect key="frame" x="0.0" y="0.0" width="61.666666666666664" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+12345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Del-Kp-f3N">
+                                        <rect key="frame" x="61.666666666666671" y="0.0" width="63" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kQi-yD-6XX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mqg-fm-a7h" firstAttribute="top" secondItem="aKt-7d-IiE" secondAttribute="bottom" constant="110" id="0VC-5Y-ZeT"/>
                             <constraint firstItem="kQi-yD-6XX" firstAttribute="bottom" secondItem="mqg-fm-a7h" secondAttribute="bottom" constant="30" id="3Gm-PL-mhx"/>
+                            <constraint firstItem="daR-Dv-TVr" firstAttribute="centerX" secondItem="xmo-V7-qUd" secondAttribute="centerX" id="8vO-2U-IRy"/>
+                            <constraint firstItem="daR-Dv-TVr" firstAttribute="top" secondItem="aKt-7d-IiE" secondAttribute="bottom" constant="33" id="Qgc-Oi-Q7v"/>
                             <constraint firstItem="kQi-yD-6XX" firstAttribute="trailing" secondItem="mqg-fm-a7h" secondAttribute="trailing" constant="20" id="WFF-B4-82Z"/>
                             <constraint firstItem="kQi-yD-6XX" firstAttribute="trailing" secondItem="aKt-7d-IiE" secondAttribute="trailing" constant="20" id="ZB2-T0-xKg"/>
                             <constraint firstItem="aKt-7d-IiE" firstAttribute="leading" secondItem="kQi-yD-6XX" secondAttribute="leading" constant="20" id="cc9-mS-hkD"/>
@@ -164,7 +176,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="完了"/>
                                 <connections>
                                     <action selector="saveElement" destination="HY4-kw-wWL" eventType="touchUpInside" id="W5r-gf-31h"/>
-                                    <segue destination="Fu6-iS-b40" kind="presentation" id="m3a-8f-UbH"/>
+                                    <segue destination="Fu6-iS-b40" kind="show" id="m3a-8f-UbH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -188,30 +200,45 @@
             </objects>
             <point key="canvasLocation" x="4388" y="-27.339901477832512"/>
         </scene>
-        <!--View Controller-->
+        <!--Animation View Controller-->
         <scene sceneID="RMk-ZN-wd8">
             <objects>
-                <viewController id="Fu6-iS-b40" sceneMemberID="viewController">
+                <viewController id="Fu6-iS-b40" customClass="AnimationViewController" customModule="HappyMoney" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0mz-S1-6Yv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0q3-ay-YVi">
-                                <rect key="frame" x="166" y="353" width="42" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqv-bS-qNj">
+                                <rect key="frame" x="124" y="617" width="128" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="ホームに戻る"/>
+                                <connections>
+                                    <action selector="backView" destination="Fu6-iS-b40" eventType="touchUpInside" id="n3p-Oz-NwF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZd-Nv-XHE">
+                                <rect key="frame" x="133" y="574" width="111" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="続けて入力"/>
+                                <connections>
+                                    <action selector="continueInput" destination="Fu6-iS-b40" eventType="touchUpInside" id="o8h-zu-2D5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎉" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXL-xT-kaT">
+                                <rect key="frame" x="147" y="361.33333333333331" width="81" height="89.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqv-bS-qNj">
-                                <rect key="frame" x="150" y="617" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Button"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hh0-cy-sf8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VXL-xT-kaT" firstAttribute="centerX" secondItem="0mz-S1-6Yv" secondAttribute="centerX" id="8je-Ma-Uza"/>
+                            <constraint firstItem="VXL-xT-kaT" firstAttribute="centerY" secondItem="0mz-S1-6Yv" secondAttribute="centerY" id="Fvn-Am-cvU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="h9W-LF-1cZ"/>
                 </viewController>

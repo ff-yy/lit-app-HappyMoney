@@ -27,6 +27,7 @@ class TableViewCell: UITableViewCell {
     func setCell(amount: Int, note: String, type: Int) {
         amountLabel.text = String(amount) + "円"
         noteLabel.text = note
+        backgroundColor = UIColor.clear;
         if (type == 0) {
             rectangle.backgroundColor = UIColor.systemRed
             amountLabel.textColor = UIColor.systemRed

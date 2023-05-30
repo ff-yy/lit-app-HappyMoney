@@ -7,8 +7,11 @@
 
 import UIKit
 import RealmSwift
+import Lottie
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var animationView = LottieAnimationView()
     
     let realm = try! Realm()
     @IBOutlet var tableView: UITableView!
@@ -44,12 +47,26 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         monthElementArray = allElementArray.filter{$0.date/100 == selectedYearMonth}
         tableView.reloadData()
         selectedYearMonthLabel.text = String(2000 + selectedYearMonth/100) + "年 " + String(selectedYearMonth % 100) + "月分"
-        
+        updateTotalLabel()
+
+    }
+    
+    func updateTotalLabel() {
         var sum: Int = 0
         for element in monthElementArray {
             sum += ((element.type == 0) ? -1:1)*element.amount
         }
-        totalLabel.text = "合計: " + String(sum)
+        totalLabel.text = String(sum)
+        if (sum == 0) {
+            totalLabel.textColor = UIColor.black
+        }
+        else if (sum > 0) {
+            totalLabel.textColor = UIColor.systemGreen
+        }
+        else if (sum < 0) {
+            totalLabel.textColor = UIColor.systemRed
+        }
+        
     }
     
     
@@ -78,6 +95,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //アニメーションの呼び出し
+        addAnimationView()
+        
         tableView.dataSource = self
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         
@@ -88,6 +108,26 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let month = calendar.component(.month, from: date)
         let yearMonth = year + month //ex: 2305
         selectedYearMonth = yearMonth
+        
+    }
+    
+    //アニメーションの準備
+    func addAnimationView() {
+        //アニメーションファイルの指定
+        animationView = LottieAnimationView(name: "37799-starry-background")
+        
+        //アニメーションの位置指定（画面中央）
+        animationView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
+
+        //アニメーションのアスペクト比を指定＆ループで開始
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+
+        //ViewControllerに配置
+        view.addSubview(animationView)
+        view.sendSubviewToBack(animationView)
+
     }
     
     /**
@@ -123,6 +163,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 tableView.beginUpdates()
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 tableView.endUpdates()
+                updateTotalLabel()
 
                 
             case .insert, .none:
