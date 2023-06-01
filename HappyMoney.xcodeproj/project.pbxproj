@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0407987C2A27101300824355 /* 7893-confetti-cannons.json in Resources */ = {isa = PBXBuildFile; fileRef = 0407987B2A27101300824355 /* 7893-confetti-cannons.json */; };
 		0427F1622A1DE0A50025F39C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427F1612A1DE0A50025F39C /* ListViewController.swift */; };
 		0427F1642A1DE86C0025F39C /* CustomUINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427F1632A1DE86C0025F39C /* CustomUINavigationBar.swift */; };
 		0427F1692A1DEE8F0025F39C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427F1672A1DEE8F0025F39C /* TableViewCell.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0407987B2A27101300824355 /* 7893-confetti-cannons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "7893-confetti-cannons.json"; sourceTree = "<group>"; };
 		0427F1612A1DE0A50025F39C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0427F1632A1DE86C0025F39C /* CustomUINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUINavigationBar.swift; sourceTree = "<group>"; };
 		0427F1672A1DEE8F0025F39C /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				0427F1632A1DE86C0025F39C /* CustomUINavigationBar.swift */,
 				046E44F32A1CACFD007B323A /* Assets.xcassets */,
 				046E44F52A1CACFD007B323A /* LaunchScreen.storyboard */,
+				0407987B2A27101300824355 /* 7893-confetti-cannons.json */,
 				049DEB762A25E6CE0062CEC9 /* 37799-starry-background.json */,
 				049DEB742A25E6390062CEC9 /* 84667-bg-wave-under.json */,
 				049DEB6A2A249A170062CEC9 /* 145352-kadokado-clapping.json */,
@@ -195,6 +198,7 @@
 				049DEB752A25E6390062CEC9 /* 84667-bg-wave-under.json in Resources */,
 				046E44F72A1CACFD007B323A /* LaunchScreen.storyboard in Resources */,
 				0427F16A2A1DEE8F0025F39C /* TableViewCell.xib in Resources */,
+				0407987C2A27101300824355 /* 7893-confetti-cannons.json in Resources */,
 				049DEB772A25E6CE0062CEC9 /* 37799-starry-background.json in Resources */,
 				046E44F42A1CACFD007B323A /* Assets.xcassets in Resources */,
 				049DEB6B2A249A170062CEC9 /* 145352-kadokado-clapping.json in Resources */,

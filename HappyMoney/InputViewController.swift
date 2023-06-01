@@ -12,6 +12,7 @@ class InputViewController: UIViewController {
     
     let realm = try! Realm()
     var type: Int = 0//0は支出, 1は収入
+    var element: Element!
     
     @IBOutlet var amountTextField: UITextField!
     @IBOutlet var noteTextField: UITextField!
@@ -50,11 +51,14 @@ class InputViewController: UIViewController {
         }
     }
     
+    
+    
     /**
      ボタン押下時に呼び出される
      Elementクラスを作成して、要素を保存する
      */
     @IBAction func saveElement() {
+        
         let calendar = Calendar(identifier: .gregorian)
         let date = Date()
         let year = ( calendar.component(.year, from: date) - 2000 ) * 10000
@@ -65,17 +69,37 @@ class InputViewController: UIViewController {
         
         let element = Element()
         element.date = time
-//        element.index =
         element.amount = Int(amountTextField.text ?? "") ?? 0
         element.note = noteTextField.text ?? ""
         element.type = type
         createElement(element: element)
+        self.element = element
+        
+        amountTextField.text = ""
+        noteTextField.text = ""
+        button.isEnabled = false
+        
+        performSegue(withIdentifier: "toAnimation", sender: self ) //prepare呼び出し
+    }
+    
+    /**
+     値渡し用メソッド
+     値渡したい時はprepareメソッドいる
+     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAnimation" {
+            let nextView = segue.destination as! AnimationViewController
+
+            nextView.type = element.type
+        }
     }
     
     // セグメントコントロールのボタンが切り替わった時に呼ばれる
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
         type = sender.selectedSegmentIndex
+//        print(type)
     }
+    
 
         
     /*

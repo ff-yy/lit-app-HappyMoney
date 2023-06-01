@@ -21,6 +21,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet var selectedYearMonthLabel: UILabel!
     @IBOutlet var totalLabel: UILabel!
     
+    @IBAction func backHere(sender: UIStoryboardSegue) {
+    }
+            
+    
     @IBAction func backButton() {
         selectedYearMonth -= 1
         if (selectedYearMonth % 100 == 0) {//1月から0月になったとき = 下2桁が0

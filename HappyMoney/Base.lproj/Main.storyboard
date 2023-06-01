@@ -132,18 +132,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="formValueChanged" destination="HY4-kw-wWL" eventType="valueChanged" id="HeP-hd-03x"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XdZ-DD-C3G">
                                 <rect key="frame" x="155" y="268" width="204" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="formValueChanged" destination="HY4-kw-wWL" eventType="valueChanged" id="qyM-qr-rQq"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFM-le-1tg">
                                 <rect key="frame" x="65" y="177" width="41" height="24"/>
@@ -176,7 +170,6 @@
                                 <buttonConfiguration key="configuration" style="gray" title="完了"/>
                                 <connections>
                                     <action selector="saveElement" destination="HY4-kw-wWL" eventType="touchUpInside" id="W5r-gf-31h"/>
-                                    <segue destination="Fu6-iS-b40" kind="show" id="m3a-8f-UbH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -194,6 +187,7 @@
                         <outlet property="amountTextField" destination="3uG-5f-Iot" id="01n-cx-gXM"/>
                         <outlet property="button" destination="jGW-dt-els" id="JBM-Rq-UGX"/>
                         <outlet property="noteTextField" destination="XdZ-DD-C3G" id="yUa-n2-I4D"/>
+                        <segue destination="Fu6-iS-b40" kind="presentation" identifier="toAnimation" id="y6D-16-8OC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLa-1F-REI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -203,7 +197,7 @@
         <!--Animation View Controller-->
         <scene sceneID="RMk-ZN-wd8">
             <objects>
-                <viewController id="Fu6-iS-b40" customClass="AnimationViewController" customModule="HappyMoney" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Fu6-iS-b40" customClass="AnimationViewController" customModule="HappyMoney" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0mz-S1-6Yv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,7 +208,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="ホームに戻る"/>
                                 <connections>
-                                    <action selector="backView" destination="Fu6-iS-b40" eventType="touchUpInside" id="n3p-Oz-NwF"/>
+                                    <segue destination="LgL-9N-Sdm" kind="unwind" unwindAction="backHereWithSender:" id="cX0-dR-o9u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZd-Nv-XHE">
@@ -223,7 +217,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="続けて入力"/>
                                 <connections>
-                                    <action selector="continueInput" destination="Fu6-iS-b40" eventType="touchUpInside" id="o8h-zu-2D5"/>
+                                    <action selector="backToInputView" destination="Fu6-iS-b40" eventType="touchUpInside" id="o8h-zu-2D5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎉" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXL-xT-kaT">
@@ -243,13 +237,14 @@
                     <navigationItem key="navigationItem" id="h9W-LF-1cZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tra-ee-wR8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="LgL-9N-Sdm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5236" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eaq-ne-SCT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rFH-kM-AcP" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="rFH-kM-AcP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7pS-sR-grx">
                         <rect key="frame" x="0.0" y="50" width="375" height="44"/>

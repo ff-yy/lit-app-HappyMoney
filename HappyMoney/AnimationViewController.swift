@@ -12,6 +12,8 @@ class AnimationViewController: UIViewController {
     
     var animationView = LottieAnimationView()
     @IBOutlet var emojiLabel: UILabel!
+    var element: Element!
+    var type: Int!
 
     override func viewDidLoad() {
         
@@ -28,7 +30,12 @@ class AnimationViewController: UIViewController {
     //アニメーションの準備
     func addAnimationView() {
         //アニメーションファイルの指定
-        animationView = LottieAnimationView(name: "7893-confetti-cannons")
+        if (type == 0) {
+            animationView = LottieAnimationView(name: "7893-confetti-cannons")
+        }
+        else {
+            animationView = LottieAnimationView(name: "145352-kadokado-clapping")
+        }
         
         //アニメーションの位置指定（画面中央）
         animationView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
@@ -45,14 +52,11 @@ class AnimationViewController: UIViewController {
     }
 
     
-    @IBAction func continueInput() {
-        self.navigationController?.popViewController(animated: true)
+    @IBAction func backToInputView() {
+        //viewcontrollerを破棄する
+        dismiss(animated: true)
     }
     
-    @IBAction func backView() {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-
     /*
     // MARK: - Navigation
 
