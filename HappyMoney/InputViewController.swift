@@ -22,9 +22,13 @@ class InputViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.backBarButtonItem?.title = " "
+//        self.navigationItem.backBarButtonItem?.title = " "
+        //amountTextFieldのキーボードを数字専用にする
         amountTextField.keyboardType = UIKeyboardType.numberPad
-        button.isEnabled = false
+        //ボタンを押せなくする
+//        button.isEnabled = false
+        textFieldDidChange(amountTextField)
+        //イベント登録
         amountTextField.addTarget(self, action: #selector(InputViewController.textFieldDidChange(_:)), for: .editingChanged)
         noteTextField.addTarget(self, action: #selector(InputViewController.textFieldDidChange(_:)), for: .editingChanged)
     }
@@ -36,9 +40,13 @@ class InputViewController: UIViewController {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if (amountTextField.text != "" && noteTextField.text != "") {
             button.isEnabled = true
+            button.backgroundColor = UIColor.darkGray
+            button.layer.cornerRadius = 10
         }
         else {
             button.isEnabled = false
+            button.backgroundColor = UIColor.white
+            button.layer.cornerRadius = 10
         }
     }
 

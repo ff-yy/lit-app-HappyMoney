@@ -21,6 +21,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet var selectedYearMonthLabel: UILabel!
     @IBOutlet var totalLabel: UILabel!
     
+    //AnimationViewControllerから帰ってくる用
     @IBAction func backHere(sender: UIStoryboardSegue) {
     }
             
@@ -168,11 +169,16 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 tableView.endUpdates()
                 updateTotalLabel()
+                //allElementArrayも更新（Realmから要素を取得）
+                allElementArray = readElementArray()
+
 
                 
             case .insert, .none:
                 // NOP
                 break
+            @unknown default:
+                fatalError()
             }
     }
     
