@@ -119,7 +119,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //アニメーションの準備
     func addAnimationView() {
         //アニメーションファイルの指定
-        animationView = LottieAnimationView(name: "37799-starry-background")
+        animationView = LottieAnimationView(name: "anime-bg-starry")
         
         //アニメーションの位置指定（画面中央）
         animationView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)

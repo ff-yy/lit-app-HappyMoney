@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0407987C2A27101300824355 /* 7893-confetti-cannons.json in Resources */ = {isa = PBXBuildFile; fileRef = 0407987B2A27101300824355 /* 7893-confetti-cannons.json */; };
 		0427F1622A1DE0A50025F39C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427F1612A1DE0A50025F39C /* ListViewController.swift */; };
 		0427F1642A1DE86C0025F39C /* CustomUINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427F1632A1DE86C0025F39C /* CustomUINavigationBar.swift */; };
 		0427F1692A1DEE8F0025F39C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427F1672A1DEE8F0025F39C /* TableViewCell.swift */; };
@@ -22,15 +21,11 @@
 		049DEB642A22F8390062CEC9 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEB632A22F8390062CEC9 /* Element.swift */; };
 		049DEB672A2356180062CEC9 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 049DEB662A2356180062CEC9 /* Realm */; };
 		049DEB692A2356180062CEC9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 049DEB682A2356180062CEC9 /* RealmSwift */; };
-		049DEB6B2A249A170062CEC9 /* 145352-kadokado-clapping.json in Resources */ = {isa = PBXBuildFile; fileRef = 049DEB6A2A249A170062CEC9 /* 145352-kadokado-clapping.json */; };
 		049DEB6F2A25DBBC0062CEC9 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEB6E2A25DBBC0062CEC9 /* AnimationViewController.swift */; };
-		049DEB752A25E6390062CEC9 /* 84667-bg-wave-under.json in Resources */ = {isa = PBXBuildFile; fileRef = 049DEB742A25E6390062CEC9 /* 84667-bg-wave-under.json */; };
-		049DEB772A25E6CE0062CEC9 /* 37799-starry-background.json in Resources */ = {isa = PBXBuildFile; fileRef = 049DEB762A25E6CE0062CEC9 /* 37799-starry-background.json */; };
 		0519F0B33B1707767CF6BDEE /* Pods_HappyMoney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E496F1EDA2CAFD7823B898D3 /* Pods_HappyMoney.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0407987B2A27101300824355 /* 7893-confetti-cannons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "7893-confetti-cannons.json"; sourceTree = "<group>"; };
 		041597412A35B39900A515E4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		041597422A35B39900A515E4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0427F1612A1DE0A50025F39C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -47,10 +42,7 @@
 		049DEB5F2A1F40D10062CEC9 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		049DEB612A22F2540062CEC9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		049DEB632A22F8390062CEC9 /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
-		049DEB6A2A249A170062CEC9 /* 145352-kadokado-clapping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "145352-kadokado-clapping.json"; sourceTree = "<group>"; };
 		049DEB6E2A25DBBC0062CEC9 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
-		049DEB742A25E6390062CEC9 /* 84667-bg-wave-under.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "84667-bg-wave-under.json"; sourceTree = "<group>"; };
-		049DEB762A25E6CE0062CEC9 /* 37799-starry-background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "37799-starry-background.json"; sourceTree = "<group>"; };
 		1EEF634A843BBC8010E598EE /* Pods-HappyMoney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMoney.debug.xcconfig"; path = "Target Support Files/Pods-HappyMoney/Pods-HappyMoney.debug.xcconfig"; sourceTree = "<group>"; };
 		DFBE99B858F93BD51DCDF1FC /* Pods-HappyMoney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyMoney.release.xcconfig"; path = "Target Support Files/Pods-HappyMoney/Pods-HappyMoney.release.xcconfig"; sourceTree = "<group>"; };
 		E496F1EDA2CAFD7823B898D3 /* Pods_HappyMoney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyMoney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,10 +92,6 @@
 				0427F1632A1DE86C0025F39C /* CustomUINavigationBar.swift */,
 				046E44F32A1CACFD007B323A /* Assets.xcassets */,
 				046E44F52A1CACFD007B323A /* LaunchScreen.storyboard */,
-				0407987B2A27101300824355 /* 7893-confetti-cannons.json */,
-				049DEB762A25E6CE0062CEC9 /* 37799-starry-background.json */,
-				049DEB742A25E6390062CEC9 /* 84667-bg-wave-under.json */,
-				049DEB6A2A249A170062CEC9 /* 145352-kadokado-clapping.json */,
 				046E44F82A1CACFD007B323A /* Info.plist */,
 				049DEB5F2A1F40D10062CEC9 /* InputViewController.swift */,
 				049DEB612A22F2540062CEC9 /* ViewController.swift */,
@@ -198,13 +186,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				049DEB752A25E6390062CEC9 /* 84667-bg-wave-under.json in Resources */,
 				046E44F72A1CACFD007B323A /* LaunchScreen.storyboard in Resources */,
 				0427F16A2A1DEE8F0025F39C /* TableViewCell.xib in Resources */,
-				0407987C2A27101300824355 /* 7893-confetti-cannons.json in Resources */,
-				049DEB772A25E6CE0062CEC9 /* 37799-starry-background.json in Resources */,
 				046E44F42A1CACFD007B323A /* Assets.xcassets in Resources */,
-				049DEB6B2A249A170062CEC9 /* 145352-kadokado-clapping.json in Resources */,
 				046E44F22A1CACFB007B323A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,7 +329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -400,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

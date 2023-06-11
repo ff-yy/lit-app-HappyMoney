@@ -10,11 +10,28 @@ import Lottie
 
 class AnimationViewController: UIViewController {
     
-    var animationView = LottieAnimationView()
+    var mainAnimationView = LottieAnimationView()
+    var subAnimationView = LottieAnimationView()
+
     @IBOutlet var emojiLabel: UILabel!
     var element: Element!
     var timer: Timer?
     var elapsedTime: TimeInterval = 0.0
+    let happyStringArray: [String] = ["🎉","🥳","😊","🤩","🤑"]
+    let happyBGAnimationArray: [String] = ["anime-happybg-confetticannons","anime-happybg-celebration"]
+    let moneyMainAnimationArray: [String] = ["anime-moneymain-clapping","anime-moneymain-rupeecoin"]
+    let moneyBGAnimationArray: [String] = ["anime-moneybg-rain"]
+
+    func setEmojiLabel() {
+        if (element.type == 0) {
+            emojiLabel.text = happyStringArray[Int.random(in: 0..<happyStringArray.count)]
+        }
+        else {
+            emojiLabel.text = ""
+        }
+    }
+
+
     
     func startLoop() {
         self.view.addSubview(emojiLabel)
@@ -36,7 +53,7 @@ class AnimationViewController: UIViewController {
         }
         
         elapsedTime += 3.0
-        if elapsedTime >= 10.0 {
+        if elapsedTime >= 10.0 { // 10秒後には終了
             stopLoop()
         }
     }
@@ -53,6 +70,9 @@ class AnimationViewController: UIViewController {
         // 戻るボタンを非表示にする
         self.navigationItem.hidesBackButton = true
         
+        // 絵文字用のラベルの設定
+        setEmojiLabel()
+        
         //アニメーションの呼び出し
         addAnimationView()
         
@@ -67,24 +87,35 @@ class AnimationViewController: UIViewController {
     //アニメーションの準備
     func addAnimationView() {
         //アニメーションファイルの指定
-        if (element.type == 0) {
-            animationView = LottieAnimationView(name: "7893-confetti-cannons")
+        if (element.type == 0) { // 出費
+            mainAnimationView = LottieAnimationView(name: "") // なし
+            subAnimationView = LottieAnimationView(name: happyBGAnimationArray[Int.random(in: 0..<happyBGAnimationArray.count)])
         }
-        else {
-            animationView = LottieAnimationView(name: "145352-kadokado-clapping")
+        else { //　収入
+            mainAnimationView = LottieAnimationView(name: moneyMainAnimationArray[Int.random(in: 0..<moneyMainAnimationArray.count)])
+            subAnimationView = LottieAnimationView(name: moneyBGAnimationArray[Int.random(in: 0..<moneyBGAnimationArray.count)])
+            
         }
         
         //アニメーションの位置指定（画面中央）
-        animationView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
+        mainAnimationView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
+        subAnimationView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
 
         //アニメーションのアスペクト比を指定＆ループで開始
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .loop
-        animationView.play()
+        mainAnimationView.contentMode = .scaleAspectFit
+        mainAnimationView.loopMode = .loop
+        mainAnimationView.play()
+        subAnimationView.contentMode = .scaleAspectFit
+        subAnimationView.loopMode = .loop
+        subAnimationView.play()
+
 
         //ViewControllerに配置
-        view.addSubview(animationView)
-        view.sendSubviewToBack(animationView)
+        view.addSubview(mainAnimationView)
+        view.sendSubviewToBack(mainAnimationView)
+        view.addSubview(subAnimationView)
+        view.sendSubviewToBack(subAnimationView)
+
 
     }
 

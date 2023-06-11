@@ -19,7 +19,7 @@ class InputViewController: UIViewController {
     @IBOutlet var button: UIButton!
         
     var elementArray: [Element] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.navigationItem.backBarButtonItem?.title = " "
