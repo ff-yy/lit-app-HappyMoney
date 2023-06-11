@@ -98,7 +98,7 @@ class InputViewController: UIViewController {
         if segue.identifier == "toAnimation" {
             let nextView = segue.destination as! AnimationViewController
 
-            nextView.type = element.type
+            nextView.element = element
         }
     }
     

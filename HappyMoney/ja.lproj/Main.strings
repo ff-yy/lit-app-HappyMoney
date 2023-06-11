@@ -1,0 +1,63 @@
+
+/* Class = "UITextField"; placeholder = "750"; ObjectID = "3uG-5f-Iot"; */
+"3uG-5f-Iot.placeholder" = "750";
+
+/* Class = "UILabel"; text = "+12345"; ObjectID = "Del-Kp-f3N"; */
+"Del-Kp-f3N.text" = "+12345";
+
+/* Class = "UIButton"; configuration.title = "続けて入力"; ObjectID = "GZd-Nv-XHE"; */
+"GZd-Nv-XHE.configuration.title" = "続けて入力";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "GZd-Nv-XHE"; */
+"GZd-Nv-XHE.normalTitle" = "Button";
+
+/* Class = "UIViewController"; title = "ListViewController"; ObjectID = "HNe-6h-m3S"; */
+"HNe-6h-m3S.title" = "ListViewController";
+
+/* Class = "UILabel"; text = "月合計: "; ObjectID = "Kpw-yr-Yfb"; */
+"Kpw-yr-Yfb.text" = "月合計: ";
+
+/* Class = "UIButton"; configuration.title = "ホームに戻る"; ObjectID = "Qqv-bS-qNj"; */
+"Qqv-bS-qNj.configuration.title" = "ホームに戻る";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Qqv-bS-qNj"; */
+"Qqv-bS-qNj.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "楽しい家計簿"; ObjectID = "VF9-ZL-VRH"; */
+"VF9-ZL-VRH.title" = "楽しい家計簿";
+
+/* Class = "UILabel"; text = "🎉"; ObjectID = "VXL-xT-kaT"; */
+"VXL-xT-kaT.text" = "🎉";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "XQr-vY-MUq"; */
+"XQr-vY-MUq.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "お昼ご飯"; ObjectID = "XdZ-DD-C3G"; */
+"XdZ-DD-C3G.placeholder" = "お昼ご飯";
+
+/* Class = "UILabel"; text = "MONTH"; ObjectID = "ap0-iT-yXl"; */
+"ap0-iT-yXl.text" = "MONTH";
+
+/* Class = "UILabel"; text = "メモ"; ObjectID = "cXK-n5-whR"; */
+"cXK-n5-whR.text" = "メモ";
+
+/* Class = "UIBarButtonItem"; title = "追加"; ObjectID = "fh4-7n-JwI"; */
+"fh4-7n-JwI.title" = "追加";
+
+/* Class = "UIButton"; configuration.title = "完了"; ObjectID = "jGW-dt-els"; */
+"jGW-dt-els.configuration.title" = "完了";
+
+/* Class = "UIButton"; normalTitle = "完了"; ObjectID = "jGW-dt-els"; */
+"jGW-dt-els.normalTitle" = "完了";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ovH-vj-APy"; */
+"ovH-vj-APy.normalTitle" = "Button";
+
+/* Class = "UISegmentedControl"; sRW-3f-4BV.segmentTitles[0] = "出費"; ObjectID = "sRW-3f-4BV"; */
+"sRW-3f-4BV.segmentTitles[0]" = "出費";
+
+/* Class = "UISegmentedControl"; sRW-3f-4BV.segmentTitles[1] = "収入"; ObjectID = "sRW-3f-4BV"; */
+"sRW-3f-4BV.segmentTitles[1]" = "収入";
+
+/* Class = "UILabel"; text = "金額"; ObjectID = "zFM-le-1tg"; */
+"zFM-le-1tg.text" = "金額";

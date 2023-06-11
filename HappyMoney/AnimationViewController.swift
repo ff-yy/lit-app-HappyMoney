@@ -13,7 +13,39 @@ class AnimationViewController: UIViewController {
     var animationView = LottieAnimationView()
     @IBOutlet var emojiLabel: UILabel!
     var element: Element!
-    var type: Int!
+    var timer: Timer?
+    var elapsedTime: TimeInterval = 0.0
+    
+    func startLoop() {
+        self.view.addSubview(emojiLabel)
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(loopAction), userInfo: nil, repeats: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+            self.stopLoop()
+        }
+    }
+
+    @objc func loopAction() {
+        // 3秒ごとのループ処理 拡大縮小のアニメーション
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
+            self.emojiLabel.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        }) { (finished) in
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
+                self.emojiLabel.transform = CGAffineTransform.identity
+            }, completion: nil)
+        }
+        
+        elapsedTime += 3.0
+        if elapsedTime >= 10.0 {
+            stopLoop()
+        }
+    }
+
+    func stopLoop() {
+        timer?.invalidate()
+        timer = nil
+    }
+
 
     override func viewDidLoad() {
         
@@ -23,14 +55,19 @@ class AnimationViewController: UIViewController {
         
         //アニメーションの呼び出し
         addAnimationView()
+        
+        
+        startLoop()
 
-        // Do any additional setup after loading the view.
+        
+
     }
     
+   
     //アニメーションの準備
     func addAnimationView() {
         //アニメーションファイルの指定
-        if (type == 0) {
+        if (element.type == 0) {
             animationView = LottieAnimationView(name: "7893-confetti-cannons")
         }
         else {
