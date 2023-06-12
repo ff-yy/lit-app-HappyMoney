@@ -191,7 +191,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if segue.identifier == "toEdit" {
             let nextView = segue.destination as! EditElementViewController
 
-            nextView.element = selectedElement
+            nextView.elementSelected = selectedElement
         }
     }
     

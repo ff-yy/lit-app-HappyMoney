@@ -83,7 +83,7 @@ class AnimationViewController: UIViewController {
 
     @objc func loopAction() {
         // 3秒ごとのループ処理 拡大縮小のアニメーション
-//        animationReflection()
+//        animationReflection() // TODO
 //        elapsedTime += 3.0
 //        if elapsedTime >= 10.0 { // 10秒後には終了
 //            stopLoop()
