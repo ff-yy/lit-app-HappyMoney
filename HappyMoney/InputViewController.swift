@@ -17,12 +17,35 @@ class InputViewController: UIViewController {
     @IBOutlet var amountTextField: UITextField!
     @IBOutlet var noteTextField: UITextField!
     @IBOutlet var button: UIButton!
+    @IBOutlet var datePicker: UIDatePicker!
+
         
-    var elementArray: [Element] = []
+    // 余白タップ時にテキスト入力モード解除
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+    }
+    
+    // テキストフィールドの閉じるボタン押下時にキーボードを閉じる
+    @objc  func closeButtonTapped() {
+        self.view.endEditing(true)
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationItem.backBarButtonItem?.title = " "
+        
+        // テキストフィールドの閉じるボタン実装
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        // スペーサー構築
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        // 閉じるボタン構築
+        let closeButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action:#selector(closeButtonTapped))
+        toolBar.items = [spacer, closeButton]
+        amountTextField.inputAccessoryView = toolBar
+        noteTextField.inputAccessoryView = toolBar
+        // テキストフィールドの閉じるボタン実装 終わり
+
         //amountTextFieldのキーボードを数字専用にする
         amountTextField.keyboardType = UIKeyboardType.numberPad
         //ボタンを押せなくする
@@ -66,17 +89,10 @@ class InputViewController: UIViewController {
      Elementクラスを作成して、要素を保存する
      */
     @IBAction func saveElement() {
-        
-        let calendar = Calendar(identifier: .gregorian)
-        let date = Date()
-        let year = ( calendar.component(.year, from: date) - 2000 ) * 10000
-        let month = calendar.component(.month, from: date) * 100
-        let day = calendar.component(.day, from: date)
-        let time = year + month + day //ex: 230528
-        print("time: " + String(time))
-        
         let element = Element()
-        element.date = time
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyMMdd"
+        element.date = Int(dateFormatter.string(from: datePicker.date)) ?? 0
         element.amount = Int(amountTextField.text ?? "") ?? 0
         element.note = noteTextField.text ?? ""
         element.type = type

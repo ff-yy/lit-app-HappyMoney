@@ -20,13 +20,32 @@ class EditElementViewController: UIViewController {
     @IBOutlet var segment: UISegmentedControl!
     @IBOutlet var datePicker: UIDatePicker!
         
+    // 余白タップ時にテキスト入力モード解除
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)
+    }
+   
+    // テキストフィールドの閉じるボタン押下時にキーボードを閉じる
+    @objc  func closeButtonTapped() {
+        self.view.endEditing(true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // テキストフィールドの閉じるボタン実装
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        // スペーサー構築
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        // 閉じるボタン構築
+        let closeButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action:#selector(closeButtonTapped))
+        toolBar.items = [spacer, closeButton]
+        amountTextField.inputAccessoryView = toolBar
+        noteTextField.inputAccessoryView = toolBar
+        // テキストフィールドの閉じるボタン実装 終わり
+
+        // 値をそれぞれ代入する
         amountTextField.text = String(elementSelected.amount)
         noteTextField.text = String(elementSelected.note)
         segment.selectedSegmentIndex = elementSelected.type
