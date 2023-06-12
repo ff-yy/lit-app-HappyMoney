@@ -268,6 +268,13 @@
                                     <action selector="backToInputView" destination="Fu6-iS-b40" eventType="touchUpInside" id="o8h-zu-2D5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQJ-x6-MUu">
+                                <rect key="frame" x="155.5" y="75" width="64" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="-1" height="-1"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hh0-cy-sf8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -280,10 +287,13 @@
                             <constraint firstItem="hh0-cy-sf8" firstAttribute="trailing" secondItem="Qqv-bS-qNj" secondAttribute="trailing" constant="80" id="gJr-hj-SgY"/>
                             <constraint firstItem="GZd-Nv-XHE" firstAttribute="leading" secondItem="hh0-cy-sf8" secondAttribute="leading" constant="80" id="j68-Bf-idg"/>
                             <constraint firstItem="Qqv-bS-qNj" firstAttribute="top" secondItem="GZd-Nv-XHE" secondAttribute="bottom" constant="20" id="koe-jf-Tvn"/>
+                            <constraint firstItem="LQJ-x6-MUu" firstAttribute="centerX" secondItem="0mz-S1-6Yv" secondAttribute="centerX" id="pbK-ls-62u"/>
+                            <constraint firstItem="LQJ-x6-MUu" firstAttribute="top" secondItem="hh0-cy-sf8" secondAttribute="top" constant="75" id="sBb-zs-v0P"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="h9W-LF-1cZ"/>
                     <connections>
+                        <outlet property="cheerLabel" destination="LQJ-x6-MUu" id="DM2-1v-Efn"/>
                         <outlet property="emojiLabel" destination="VXL-xT-kaT" id="74c-xj-n9C"/>
                     </connections>
                 </viewController>
