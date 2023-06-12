@@ -402,17 +402,19 @@
                                             <constraint firstAttribute="height" constant="30" id="tQ9-XH-cGG"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="230612" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F65-Zi-RJQ">
-                                        <rect key="frame" x="111" y="178" width="214" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzS-Dn-d7M">
                                         <rect key="frame" x="50" y="183" width="41" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fn-v8-IPV">
+                                        <rect key="frame" x="111" y="178" width="214" height="35"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="707244554.59173703">
+                                            <!--2023-05-31 16:49:14 +0000-->
+                                        </date>
+                                        <locale key="locale" localeIdentifier="ja"/>
+                                    </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -421,20 +423,20 @@
                                     <constraint firstItem="f5v-PX-BJT" firstAttribute="centerY" secondItem="NJF-Ba-BN0" secondAttribute="centerY" id="8rx-Eh-jqq"/>
                                     <constraint firstItem="NJF-Ba-BN0" firstAttribute="top" secondItem="Y7e-Nd-u6U" secondAttribute="bottom" constant="50" id="C3P-CI-ZQm"/>
                                     <constraint firstAttribute="trailing" secondItem="Z2f-nh-DY5" secondAttribute="trailing" constant="10" id="DWN-cx-ZGh"/>
+                                    <constraint firstItem="2fn-v8-IPV" firstAttribute="leading" secondItem="DzS-Dn-d7M" secondAttribute="trailing" constant="20" id="EPK-SF-DmR"/>
                                     <constraint firstItem="f5v-PX-BJT" firstAttribute="leading" secondItem="NJF-Ba-BN0" secondAttribute="trailing" constant="10" id="Fp0-1C-gf8"/>
                                     <constraint firstItem="Z2f-nh-DY5" firstAttribute="leading" secondItem="yGT-b2-UJa" secondAttribute="trailing" constant="20" id="G6X-gt-dPZ"/>
-                                    <constraint firstItem="F65-Zi-RJQ" firstAttribute="leading" secondItem="DzS-Dn-d7M" secondAttribute="trailing" constant="20" id="Ip7-40-5Vj"/>
+                                    <constraint firstAttribute="trailing" secondItem="2fn-v8-IPV" secondAttribute="trailing" constant="10" id="Kxi-c0-D1Z"/>
                                     <constraint firstItem="D7w-TN-rV8" firstAttribute="top" secondItem="NJF-Ba-BN0" secondAttribute="bottom" constant="50" id="NZO-I4-UIV"/>
                                     <constraint firstItem="FRB-UO-Qcv" firstAttribute="leading" secondItem="f5v-PX-BJT" secondAttribute="trailing" constant="20" id="QIA-yd-SBH"/>
                                     <constraint firstItem="Y7e-Nd-u6U" firstAttribute="top" secondItem="KNe-0v-yX0" secondAttribute="top" constant="20" id="Znf-5h-AKH"/>
                                     <constraint firstItem="yGT-b2-UJa" firstAttribute="centerY" secondItem="Y7e-Nd-u6U" secondAttribute="centerY" id="b4g-zg-IPD"/>
-                                    <constraint firstAttribute="trailing" secondItem="F65-Zi-RJQ" secondAttribute="trailing" constant="10" id="cCi-lO-Kbe"/>
                                     <constraint firstItem="yGT-b2-UJa" firstAttribute="leading" secondItem="Y7e-Nd-u6U" secondAttribute="trailing" constant="10" id="cHb-lm-eSM"/>
                                     <constraint firstItem="Z2f-nh-DY5" firstAttribute="centerY" secondItem="Y7e-Nd-u6U" secondAttribute="centerY" id="cPh-Jl-Oj0"/>
-                                    <constraint firstItem="F65-Zi-RJQ" firstAttribute="centerY" secondItem="D7w-TN-rV8" secondAttribute="centerY" id="dGH-dE-01B"/>
                                     <constraint firstAttribute="height" constant="300" id="fRi-PV-61i"/>
                                     <constraint firstItem="D7w-TN-rV8" firstAttribute="leading" secondItem="KNe-0v-yX0" secondAttribute="leading" constant="10" id="mOw-SX-iwm"/>
                                     <constraint firstItem="NJF-Ba-BN0" firstAttribute="leading" secondItem="KNe-0v-yX0" secondAttribute="leading" constant="10" id="vPZ-5D-d9q"/>
+                                    <constraint firstItem="2fn-v8-IPV" firstAttribute="centerY" secondItem="D7w-TN-rV8" secondAttribute="centerY" id="wdz-Tq-0gm"/>
                                     <constraint firstAttribute="trailing" secondItem="FRB-UO-Qcv" secondAttribute="trailing" constant="10" id="wjy-SV-V6o"/>
                                     <constraint firstItem="DzS-Dn-d7M" firstAttribute="centerY" secondItem="D7w-TN-rV8" secondAttribute="centerY" id="xIS-V2-1WV"/>
                                     <constraint firstItem="FRB-UO-Qcv" firstAttribute="centerY" secondItem="NJF-Ba-BN0" secondAttribute="centerY" id="ygc-UE-cwm"/>
@@ -459,14 +461,14 @@
                     <connections>
                         <outlet property="amountTextField" destination="Z2f-nh-DY5" id="257-bh-Jki"/>
                         <outlet property="button" destination="ehU-dD-Hz8" id="mET-Hr-78b"/>
-                        <outlet property="dateTextField" destination="F65-Zi-RJQ" id="8jC-cc-HV1"/>
+                        <outlet property="datePicker" destination="2fn-v8-IPV" id="Okr-97-5Y3"/>
                         <outlet property="noteTextField" destination="FRB-UO-Qcv" id="w0j-vh-PYd"/>
                         <outlet property="segment" destination="clS-wZ-htP" id="XdB-uY-Jnk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wl3-QW-q42" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4388" y="741"/>
+            <point key="canvasLocation" x="4388" y="740.7796101949026"/>
         </scene>
     </scenes>
     <resources>

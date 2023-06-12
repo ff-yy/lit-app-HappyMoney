@@ -195,32 +195,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    
+    //　セル選択時に呼び出し
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let alertController = UIAlertController(title: "Edit Item", message: nil, preferredStyle: .alert)
-//
-//        alertController.addTextField { (textField) in
-//            textField.text = String(self.monthElementArray[indexPath.row].amount)
-//        }
-//
-//        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
-//            if let editedText = alertController.textFields?.first?.text {
-//                self.monthElementArray[indexPath.row].amount = Int(editedText)!
-//                self.tableView.reloadData()
-//            }
-//        }
-//
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//
-//        alertController.addAction(saveAction)
-//        alertController.addAction(cancelAction)
-//
-//        present(alertController, animated: true, completion: nil)
-//
-//        tableView.deselectRow(at: indexPath, animated: true)
         selectedElement = monthElementArray[indexPath.row]
         performSegue(withIdentifier: "toEdit", sender: self ) //prepare呼び出し
-
     }
 
 

@@ -17,8 +17,8 @@ class EditElementViewController: UIViewController {
     @IBOutlet var amountTextField: UITextField!
     @IBOutlet var noteTextField: UITextField!
     @IBOutlet var button: UIButton!
-    @IBOutlet var dateTextField: UITextField!
     @IBOutlet var segment: UISegmentedControl!
+    @IBOutlet var datePicker: UIDatePicker!
         
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)
@@ -29,11 +29,11 @@ class EditElementViewController: UIViewController {
         
         amountTextField.text = String(elementSelected.amount)
         noteTextField.text = String(elementSelected.note)
-        dateTextField.text = String(elementSelected.date)
         segment.selectedSegmentIndex = elementSelected.type
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyMMdd"
+        datePicker.date = dateFormatter.date(from: String(elementSelected.date))!
         
-        
-//        self.navigationItem.backBarButtonItem?.title = " "
         //amountTextFieldのキーボードを数字専用にする
         amountTextField.keyboardType = UIKeyboardType.numberPad
         //ボタンを押せなくする
@@ -71,7 +71,9 @@ class EditElementViewController: UIViewController {
         let targetElement = realm.objects(Element.self).filter("createdDate == %@", elementSelected.createdDate).first
         
         let elementUpdated = Element()
-        elementUpdated.date = Int(dateTextField.text ?? "") ?? 0
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyMMdd"
+        elementUpdated.date = Int(dateFormatter.string(from: datePicker.date)) ?? 0
         elementUpdated.amount = Int(amountTextField.text ?? "") ?? 0
         elementUpdated.note = noteTextField.text ?? ""
         elementUpdated.type = type
