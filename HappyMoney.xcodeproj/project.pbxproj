@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041597482A370A2900A515E4 /* EditElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041597472A370A2900A515E4 /* EditElementViewController.swift */; };
 		0427F1622A1DE0A50025F39C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427F1612A1DE0A50025F39C /* ListViewController.swift */; };
 		0427F1642A1DE86C0025F39C /* CustomUINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427F1632A1DE86C0025F39C /* CustomUINavigationBar.swift */; };
 		0427F1692A1DEE8F0025F39C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427F1672A1DEE8F0025F39C /* TableViewCell.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		041597412A35B39900A515E4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		041597422A35B39900A515E4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		041597472A370A2900A515E4 /* EditElementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditElementViewController.swift; sourceTree = "<group>"; };
 		0427F1612A1DE0A50025F39C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0427F1632A1DE86C0025F39C /* CustomUINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUINavigationBar.swift; sourceTree = "<group>"; };
 		0427F1672A1DEE8F0025F39C /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				049DEB612A22F2540062CEC9 /* ViewController.swift */,
 				049DEB632A22F8390062CEC9 /* Element.swift */,
 				049DEB6E2A25DBBC0062CEC9 /* AnimationViewController.swift */,
+				041597472A370A2900A515E4 /* EditElementViewController.swift */,
 			);
 			path = HappyMoney;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				0427F1692A1DEE8F0025F39C /* TableViewCell.swift in Sources */,
 				049DEB622A22F2540062CEC9 /* ViewController.swift in Sources */,
 				049DEB6F2A25DBBC0062CEC9 /* AnimationViewController.swift in Sources */,
+				041597482A370A2900A515E4 /* EditElementViewController.swift in Sources */,
 				0427F1622A1DE0A50025F39C /* ListViewController.swift in Sources */,
 				046E44ED2A1CACFB007B323A /* SceneDelegate.swift in Sources */,
 			);

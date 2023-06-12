@@ -20,6 +20,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var selectedYearMonth: Int = 0 //ex:2305 → 23年の5月
     @IBOutlet var selectedYearMonthLabel: UILabel!
     @IBOutlet var totalLabel: UILabel!
+    var selectedElement: Element = Element()
     
     //AnimationViewControllerから帰ってくる用
     @IBAction func backHere(sender: UIStoryboardSegue) {
@@ -181,6 +182,48 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 fatalError()
             }
     }
+    
+    /**
+     値渡し用メソッド
+     値渡したい時はprepareメソッドいる
+     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toEdit" {
+            let nextView = segue.destination as! EditElementViewController
+
+            nextView.element = selectedElement
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let alertController = UIAlertController(title: "Edit Item", message: nil, preferredStyle: .alert)
+//
+//        alertController.addTextField { (textField) in
+//            textField.text = String(self.monthElementArray[indexPath.row].amount)
+//        }
+//
+//        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
+//            if let editedText = alertController.textFields?.first?.text {
+//                self.monthElementArray[indexPath.row].amount = Int(editedText)!
+//                self.tableView.reloadData()
+//            }
+//        }
+//
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//
+//        alertController.addAction(saveAction)
+//        alertController.addAction(cancelAction)
+//
+//        present(alertController, animated: true, completion: nil)
+//
+//        tableView.deselectRow(at: indexPath, animated: true)
+        selectedElement = monthElementArray[indexPath.row]
+        performSegue(withIdentifier: "toEdit", sender: self ) //prepare呼び出し
+
+    }
+
+
     
 
     /*
