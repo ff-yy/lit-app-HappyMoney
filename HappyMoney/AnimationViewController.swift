@@ -12,6 +12,8 @@ class AnimationViewController: UIViewController {
     
     var mainAnimationView = LottieAnimationView()
     var subAnimationView = LottieAnimationView()
+    let random: Int = Int.random(in: 0...3)
+
 
     @IBOutlet var emojiLabel: UILabel!
     @IBOutlet var cheerLabel: UILabel!
@@ -19,8 +21,8 @@ class AnimationViewController: UIViewController {
     var timer: Timer?
     var elapsedTime: TimeInterval = 0.0
     let happyStringArray: [String] = ["🎉","🥳","😊","🤩","🤑"]
-    let cheerStringArray: [String] = ["いい感じ！","その調子！","素晴らしい！","良いよ！","頑張ってるね！"]
-    let happyBGAnimationArray: [String] = ["anime-happybg-confetticannons","anime-happybg-celebration"]
+    let cheerStringArray: [String] = ["いい感じ！","その調子！","素晴らしい！","良いよ！","頑張ってるね！","お見事！"]
+    let happyBGAnimationArray: [String] = ["anime-happybg-confetticannons","anime-happybg-celebration","anime-happybg-confetti","anime-happybg-celebrateparty","anime-happybg-yoon","anime-happybg-136464"]
     let moneyMainAnimationArray: [String] = ["anime-moneymain-clapping","anime-moneymain-rupeecoin"]
     let moneyBGAnimationArray: [String] = ["anime-moneybg-rain"]
 
@@ -52,8 +54,18 @@ class AnimationViewController: UIViewController {
         animation.duration = 1.0
         
         emojiLabel.layer.add(animation, forKey: "rotationAnimation")
-
     }
+    
+    func animationLabelOneRotationReverse() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
+        animation.values = [0, CGFloat.pi * -2]
+        animation.keyTimes = [0, 1]
+        animation.timingFunctions = [CAMediaTimingFunction(name: .easeInEaseOut)]
+        animation.duration = 1.0
+        
+        emojiLabel.layer.add(animation, forKey: "rotationAnimation")
+    }
+
     
     func animationLabelBounceSize() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
@@ -79,15 +91,26 @@ class AnimationViewController: UIViewController {
         }
     }
     
-
+  
 
     @objc func loopAction() {
-        // 3秒ごとのループ処理 拡大縮小のアニメーション
-//        animationReflection() // TODO
-//        elapsedTime += 3.0
-//        if elapsedTime >= 10.0 { // 10秒後には終了
-//            stopLoop()
-//        }
+        // 一定秒ごとのループ処理
+        switch random {
+        case 0:
+            animationLabelOneRotation()
+        case 1:
+            animationLabelOneRotationReverse()
+        case 2:
+            animationLabelBounceSize()
+        case 3:
+            animationLabelBounceY()
+            //        elapsedTime += 3.0
+            //        if elapsedTime >= 10.0 { // 10秒後には終了
+            //            stopLoop()
+            //        }
+        default: break
+            
+        }
     }
 
     func stopLoop() {

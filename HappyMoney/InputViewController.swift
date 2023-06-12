@@ -30,7 +30,6 @@ class InputViewController: UIViewController {
         self.view.endEditing(true)
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -102,6 +101,8 @@ class InputViewController: UIViewController {
         amountTextField.text = ""
         noteTextField.text = ""
         button.isEnabled = false
+        button.backgroundColor = UIColor.white
+
         
         performSegue(withIdentifier: "toAnimation", sender: self ) //prepare呼び出し
     }

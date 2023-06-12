@@ -434,7 +434,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fn-v8-IPV">
-                                        <rect key="frame" x="111" y="178" width="214" height="35"/>
+                                        <rect key="frame" x="111" y="178" width="269" height="35"/>
                                         <date key="date" timeIntervalSinceReferenceDate="707244554.59173703">
                                             <!--2023-05-31 16:49:14 +0000-->
                                         </date>
